@@ -17,13 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import SimpleRouter
 
-from api.views import TimerView
-
-router = SimpleRouter()
-
-router.register(r"timer", TimerView)
-
+from api import views
 
 urlpatterns = [
-    path("", include(router.urls)),
+    path('timers/', views.timers_list),
+    path('timers/<int:pk>/', views.timer_detail),
 ]
