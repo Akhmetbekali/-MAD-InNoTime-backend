@@ -21,7 +21,7 @@ def timers_list(request):
         serializer = TimerRequestSerializer(data=json.loads(a))
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response("You have succesfully shared your timer", status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def timer_detail(request, pk):
